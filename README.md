@@ -1,2 +1,2 @@
 # BlogLaravelM1
-fzef
+Projet Laravel éducatif
