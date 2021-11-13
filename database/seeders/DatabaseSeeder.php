@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\PostSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\ChapterSeeder;
+use Database\Seeders\FormationSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +18,27 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-           PostSeeder::class 
+           UserSeeder::class 
         ]);
+
+        for($i = 0; $i < 3; $i++) {
+            $this->call([
+                CategorySeeder::class 
+             ]);
+        }
+
+        for($i = 0; $i < 20; $i++) {
+            $this->call([
+                FormationSeeder::class 
+             ]);
+        }
+
+        for($i = 0; $i < 40; $i++) {
+            $this->call([
+                ChapterSeeder::class 
+             ]);
+        }
+
+        
     }
 }

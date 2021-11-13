@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FormationController;
 
 
 /*
@@ -19,10 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', [PostController::class, 'getPosts']);
+Route::get('/categories', [CategoryController::class, 'getCategories']);
 
-Route::get('/posts/add', function() {
-    return view('posts.add');
-});
+Route::get('/categories/{id}', [FormationController::class, 'getFormations']);
 
-Route::post('/posts/add', [PostController::class, 'addPost']);
+// Route::get('/posts/add', function() {
+//     return view('posts.add');
+// });
+
+// Route::post('/posts/add', [PostController::class, 'addPost']);

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
-class PostSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,12 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-            'ownerId' => rand(1, 10),
-            'title' => Str::random(10),
-            'content' => Str::random(10),
+        DB::table('users')->insert([
+            'name' => 'Admin',
+            'isAdmin' => 1,
+            'email' => 'admin@admin.com',
+            'email_verified_at' => now(),
+            'password' => 'admin',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
