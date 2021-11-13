@@ -18,7 +18,6 @@ class ChapterSeeder extends Seeder
     {
         DB::table('chapters')->insert([
             'ownerId' => 1,
-            'formationId' => rand(1, 20),
             'title' => Str::random(10),
             'content' => Str::random(200),
             'created_at' => now(),

@@ -39,6 +39,18 @@ class DatabaseSeeder extends Seeder
              ]);
         }
 
+        for($i = 0; $i < 20; $i++) {
+            $this->call([
+                FormationChapterSeeder::class 
+             ]);
+        }
+
+        for($i = 0; $i < 20; $i++) {
+            $this->call([
+                FormationCategorySeeder::class 
+             ]);
+        }
+
         
     }
 }

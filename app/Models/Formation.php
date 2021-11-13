@@ -10,7 +10,7 @@ class Formation extends Model
 {
     use HasFactory;
     protected $table = "formations";
-    protected $fillable = ['ownerId', 'categoryId', 'title', 'description', 'thumbnail', 'price', 'duration'];
+    protected $fillable = ['ownerId', 'title', 'description', 'thumbnail', 'price', 'duration'];
 
     public function user() {
         return $this->belongsTo('App\Models\User', 'ownerId', 'id');

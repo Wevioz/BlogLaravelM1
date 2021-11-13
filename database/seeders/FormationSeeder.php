@@ -17,7 +17,6 @@ class FormationSeeder extends Seeder
     {
         DB::table('formations')->insert([
             'ownerId' => 1,
-            'categoryId' => rand(1, 3),
             'title' => Str::random(10),
             'description' => Str::random(20),
             'thumbnail' => rand(1,10).".png",

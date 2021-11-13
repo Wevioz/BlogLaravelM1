@@ -17,7 +17,6 @@ class Formations extends Migration
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
             $table->integer('ownerId');
-            $table->integer('categoryId');
             $table->string('title');
             $table->string('description');
             $table->string('thumbnail');

@@ -17,7 +17,6 @@ class Chapters extends Migration
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
             $table->integer('ownerId');
-            $table->integer('formationId');
             $table->string('title');
             $table->string('content');
             $table->timestamps();
