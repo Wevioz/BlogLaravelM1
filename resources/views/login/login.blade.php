@@ -1,26 +1,26 @@
 @extends('layouts.layout')
 
 @section('title')
-Categorie
+Connexion
 @endsection
 
 @section('content')
 <div class="container">
-    <h2>Ajouter une catégorie</h2>
+    <h2>Connexion</h2>
     <div class="row">
         <div class="col-sm-12">
-            <form method="POST" action="<?php Request::path() ?>">
+            <form method="POST" action="/login">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Titre :</label>
-                    <input type="text" class="form-control" id="title" name="title">
+                    <label for="email">Adresse email :</label>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
-                    <input type="text" class="form-control" id="description" name="description">
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Connexion</button>
 
                 @if($errors->any())
                     <h4>{{$errors->first()}}</h4>

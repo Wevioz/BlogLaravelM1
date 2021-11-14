@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class Category extends Model
+class Chapter extends Model
 {
     use HasFactory;
-    protected $table = "categories";
-    protected $fillable = ['ownerId', 'title', 'description'];
+    protected $table = "chapters";
+    protected $fillable = ['ownerId', 'title', 'content'];
 
     public function user() {
         return $this->belongsTo('App\Models\User', 'ownerId', 'id');

@@ -18,12 +18,12 @@ class FormationCategorySeeder extends Seeder
         $rand1 = rand(1,20);
         $rand2 = rand(1,3);
 
-        $check = DB::table('formations_categories')->where('formationId', '=', $rand1)->where('categoryId', '=', $rand2)->first();
+        $check = DB::table('category_formation')->where('formation_id', '=', $rand1)->where('category_id', '=', $rand2)->first();
 
         if($check === null) {
-            DB::table('formations_categories')->insert([
-                'formationId' => $rand1,
-                'categoryId' => $rand2
+            DB::table('category_formation')->insert([
+                'formation_id' => $rand1,
+                'category_id' => $rand2
             ]);
         }
         

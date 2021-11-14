@@ -18,12 +18,12 @@ class FormationChapterSeeder extends Seeder
         $rand1 = rand(1,20);
         $rand2 = rand(1,40);
 
-        $check = DB::table('formations_chapters')->where('formationId', '=', $rand1)->where('chapterId', '=', $rand2)->first();
+        $check = DB::table('chapter_formation')->where('formation_id', '=', $rand1)->where('chapter_id', '=', $rand2)->first();
 
         if($check === null) {
-            DB::table('formations_chapters')->insert([
-                'formationId' => $rand1,
-                'chapterId' => $rand2
+            DB::table('chapter_formation')->insert([
+                'formation_id' => $rand1,
+                'chapter_id' => $rand2
             ]);
         }
     }

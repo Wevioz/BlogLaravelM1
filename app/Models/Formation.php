@@ -15,5 +15,13 @@ class Formation extends Model
     public function user() {
         return $this->belongsTo('App\Models\User', 'ownerId', 'id');
     }
+
+    public function chapters() {
+        return $this->belongsToMany('App\Models\Chapter', 'chapter_formation', 'formation_id', 'chapter_id');
+    }
+
+    public function categories() {
+        return $this->belongsToMany('App\Models\Category');
+    }
     
 }
