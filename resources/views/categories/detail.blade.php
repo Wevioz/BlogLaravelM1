@@ -21,8 +21,10 @@
                             <h5 class="card-title">{{$formation->title}}</h5>
                             <p class="card-text">{{$formation->description}} fait par {{$formation->user->name}}</p>
                             <a href="/formations/{{$formation->id}}" class="btn btn-primary">Découvrir la formation</a>
+                            @if(Auth::check() and (Auth::user()->isAdmin == 1 or Auth::id() == $formation->user->id))
                             <a href="/formations/{{$formation->id}}/edit" class="btn btn-warning">Éditer</a>
                             <a href="/formations/{{$formation->id}}/delete" class="btn btn-danger">Supprimer</a>
+                            @endif
                         </div>
                     </div>
                 </div>

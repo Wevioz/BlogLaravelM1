@@ -16,8 +16,10 @@
                             <h5 class="card-title">{{$category->title}}</h5>
                             <p class="card-text">{{$category->description}} fait par {{$category->user->name}}</p>
                             <a href="categories/{{$category->id}}" class="btn btn-primary">Découvrir</a>
+                            @if(Auth::check() and (Auth::user()->isAdmin == 1 or Auth::id() == $category->user->id))
                             <a href="categories/{{$category->id}}/edit" class="btn btn-warning">Éditer</a>
                             <a href="categories/{{$category->id}}/delete" class="btn btn-danger">Supprimer</a>
+                            @endif
                         </div>
                     </div>
                 </div>

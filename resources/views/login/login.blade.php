@@ -25,6 +25,13 @@ Connexion
                 @if($errors->any())
                     <h4>{{$errors->first()}}</h4>
                 @endif
+                
+                <br>
+                @if(session()->has('message'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
             </form>
         </div>
     </div>

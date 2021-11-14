@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -61,6 +62,11 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/chapters/{id}/edit', [ChapterController::class, 'edit']);
     Route::post('/chapters/add', [ChapterController::class, 'add']);
+});
+
+Route::group(['middleware' => 'is.admin'], function () {
+    Route::get('/admin', [AdminController::class, 'listUnapprovedUsers']);
+    Route::get('/admin/{id}', [AdminController::class, 'validateUser']);
 });
 
 Route::get('/categories/{id}', [CategoryController::class, 'getFormationsByCategory']);

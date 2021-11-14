@@ -19,7 +19,7 @@ class FormationSeeder extends Seeder
             'ownerId' => 1,
             'title' => Str::random(10),
             'description' => Str::random(20),
-            'thumbnail' => rand(1,10).".png",
+            'thumbnail' => rand(1,10).".jng",
             'price' => rand(50, 100),
             'duration' => '1H',
             'created_at' => now(),

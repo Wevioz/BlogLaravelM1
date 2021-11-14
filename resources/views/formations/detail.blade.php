@@ -18,8 +18,10 @@
                             <h5 class="card-title">{{$chapter->title}}</h5>
                             <p class="card-text">fait par {{$chapter->user->name}}</p>
                             <a href="/chapters/{{$chapter->id}}" class="btn btn-primary">Découvrir le chapitre</a>
+                            @if(Auth::check() and (Auth::user()->isAdmin == 1 or Auth::id() == $chapter->user->id))
                             <a href="/chapters/{{$chapter->id}}/edit" class="btn btn-warning">Éditer</a>
                             <a href="/chapters/{{$chapter->id}}/delete" class="btn btn-danger">Supprimer</a>
+                            @endif
                         </div>
                     </div>
                 </div>

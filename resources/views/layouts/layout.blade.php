@@ -28,6 +28,9 @@
             </div>
             @else
             <div class="text-end">
+              @if(Auth::user()->isAdmin)
+              <a href="/admin"><button type="button" class="btn btn-outline-light me-2">Admin</button></a>  
+              @endif
               <a href="/account"><button type="button" class="btn btn-warning">Mon compte</button></a>
               <a href="/logout"><button type="button" class="btn btn-outline-light me-2">Deconnexion</button></a>  
             </div>
