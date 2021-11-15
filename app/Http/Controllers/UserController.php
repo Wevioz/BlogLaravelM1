@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Mail;
 use App\Mail\SignupMail;
+use App\Mail\NotifMail;
 
 class UserController extends Controller
 {
@@ -52,10 +53,14 @@ class UserController extends Controller
             $user->approve = 0;
 
             $user->save();
-    
-            $name = 'Cloudways';
+            
+
             Mail::to($user->email)->send(new SignupMail($user));
-   
+            
+            $admins = User::where('isAdmin', '=', 1)->get();
+            foreach($admins as $admin) {
+                Mail::to($admin->email)->send(new NotifMail($user, $admin));
+            }
             return redirect()->back()->with('message', 'Vous avez été inscrit, il ne vous reste plus qu\'à attendre la validation d\'un administrateur.');
     
         }
@@ -72,6 +77,30 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/home');
+    }
+
+    public function account(Request $request) {
+        $user = Auth::user();
+        if($request->input()) {
+            $credentials = $request->validate([
+                'name' => ['required'],
+                'email' => ['required'],
+                'password' => ['required'],
+            ]);
+
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->password = bcrypt($request->input('password'));
+            $user->isAdmin = $user->isAdmin;
+            $user->approve = $user->approve;
+
+            $user->save();
+        
+            return redirect()->back()->with('message', 'Vous avez bien modifié votre profil');
+    
+        }
+
+        return view('account/account', compact('user'));
     }
 }
 

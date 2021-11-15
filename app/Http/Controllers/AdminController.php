@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\ValidateMail;
 
 class AdminController extends Controller
 {
@@ -22,6 +24,9 @@ class AdminController extends Controller
         $user = User::find($userId);
         $user->approve = 1;
         $user->save();
+
+        Mail::to($user->email)->send(new ValidateMail($user));
+
         return redirect()->back();
     }
 }

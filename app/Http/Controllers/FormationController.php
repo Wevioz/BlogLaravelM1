@@ -34,7 +34,7 @@ class FormationController extends Controller
                 'title' => ['required'],
                 'description' => ['required'],
                 'price' => ['required'],
-                'duration' => ['required']
+                'duration' => ['required'],
             ]);
 
             $categories = Category::whereIn('id', $request->input('categories'))->get();
@@ -69,7 +69,7 @@ class FormationController extends Controller
                 'title' => ['required'],
                 'description' => ['required'],
                 'price' => ['required'],
-                'duration' => ['required']
+                'duration' => ['required'],
             ]);
 
             $categories = Category::whereIn('id', $request->input('categories'))->get();

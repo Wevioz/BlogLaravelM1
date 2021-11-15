@@ -27,7 +27,7 @@ Formation
                 </div>
                 <div class="form-group">
                     <label for="thumbnail">Image :</label>
-                    <input type="file" name="image" class="form-control" id="thumbnail" name="thumbnail">
+                    <input type="file" name="image" class="form-control" id="thumbnail" name="thumbnail" required accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="price">Prix :</label>

@@ -39,6 +39,7 @@ Route::group(['middleware' => ['guest']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/account', [UserController::class, 'account']);
     Route::post('/account', [UserController::class, 'account']);
     Route::get('/logout', [UserController::class, 'logout']);
 

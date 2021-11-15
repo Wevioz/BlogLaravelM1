@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SignupMail extends Mailable
+class NotifMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +16,10 @@ class SignupMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user, $admin)
     {
         $this->user = $user;
+        $this->admin = $admin;
     }
 
     /**
@@ -28,11 +29,11 @@ class SignupMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.signup')
+        return $this->view('emails.notif')
         ->with([
+            'admin' => $this->admin->name,
             'name' => $this->user->name,
             'email' => $this->user->email,
-            'password' => $this->user->password
         ]);
     }
 }

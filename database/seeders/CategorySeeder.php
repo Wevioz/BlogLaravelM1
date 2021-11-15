@@ -18,8 +18,8 @@ class CategorySeeder extends Seeder
         //
         DB::table('categories')->insert([
             'ownerId' => 1,
-            'title' => Str::random(10),
-            'description' => Str::random(20),
+            'title' => 'Titre exemple (' . Str::random(4) . ')',
+            'description' => 'Description exemple (' . Str::random(10) . ')',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
